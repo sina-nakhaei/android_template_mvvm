@@ -1,5 +1,5 @@
 # android_template_mvvm
-everything you need to start a modern, scalable and rubost android project.
+everything you need to start a modern, scalable and robust android project.
 you got everything you need to get started , no more fundamental setup , boring primary configuration and boilerplates.
 
 1. Dependency injection (Hilt)
