@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
+import javax.inject.Inject
 
 abstract class BaseFragment<VBinding : ViewBinding, ViewModel : BaseViewModel> : Fragment() {
 
-    private lateinit var viewModel: ViewModel
-    protected abstract fun getViewModelClass(): Class<ViewModel>
+    @Inject
+    lateinit var viewModel: ViewModel
+
 
     private var _binding: VBinding? = null
     protected val binding get() = _binding!!
@@ -34,16 +35,26 @@ abstract class BaseFragment<VBinding : ViewBinding, ViewModel : BaseViewModel> :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        primary()
         configuration()
-        viewsController()
+        viewsConfiguration()
         observer()
     }
+
+    /**
+     * anything needs to be run as soon as view is created goes here
+     */
+    open fun primary() {}
 
     /**
      * here is the place to setup your primary configuration
      */
     open fun configuration() {}
-    open fun viewsController() {}
+
+    /**
+     * anything you need to do with views implemented here
+     */
+    open fun viewsConfiguration() {}
 
     /**
      * observe your data here
@@ -59,7 +70,6 @@ abstract class BaseFragment<VBinding : ViewBinding, ViewModel : BaseViewModel> :
 
     private fun init() {
         _binding = getViewBinding()
-        viewModel = ViewModelProvider(this)[getViewModelClass()]
     }
 
     override fun onDestroyView() {
