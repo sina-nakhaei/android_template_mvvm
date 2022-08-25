@@ -20,7 +20,7 @@ import javax.inject.Singleton
 class NetworkModule {
     @Provides
     @Singleton
-    fun provideBaseUrl() = ""
+    fun provideBaseUrl() = "jsonplaceholder.typicode.com"
 
     @Provides
     @Singleton
