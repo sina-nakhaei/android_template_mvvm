@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import javax.inject.Inject
 
-abstract class BaseFragment<VBinding : ViewBinding, ViewModel : BaseViewModel> : Fragment() {
+abstract class BaseFragment<VBinding : ViewBinding> : Fragment() {
 
-    @Inject
-    lateinit var viewModel: ViewModel
 
 
     private var _binding: VBinding? = null
@@ -60,13 +58,6 @@ abstract class BaseFragment<VBinding : ViewBinding, ViewModel : BaseViewModel> :
      * observe your data here
      */
     open fun observer() {}
-
-    /**
-     * call this whenever you need to get access to your viewModel
-     */
-    fun viewModelController(block: ViewModel.() -> Unit = {}) {
-        block(viewModel)
-    }
 
     private fun init() {
         _binding = getViewBinding()
