@@ -1,6 +1,7 @@
 package com.example.android_template_mvvm.feature.playground.ui
 
 import com.example.android_template_mvvm.core.base.BaseFragment
+import com.example.android_template_mvvm.core.base.BaseFragmentWithViewModel
 import com.example.android_template_mvvm.databinding.FragmentPlaygroundBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_playground.*
@@ -11,7 +12,8 @@ import kotlinx.android.synthetic.main.fragment_playground.*
  * don't forget to change navGraph in [activity_main]
  */
 @AndroidEntryPoint
-class PlaygroundFragment : BaseFragment<FragmentPlaygroundBinding, PlaygroundViewModel>() {
+class PlaygroundFragment :
+    BaseFragmentWithViewModel<FragmentPlaygroundBinding, PlaygroundViewModel>() {
 
     companion object {
         fun newInstance() = PlaygroundFragment()
