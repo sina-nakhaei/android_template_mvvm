@@ -7,9 +7,7 @@ import javax.inject.Inject
 
 abstract class BaseActivity<VBinding : ViewBinding> :
     AppCompatActivity() {
-
-
-
+    
     private var _binding: VBinding? = null
     protected val binding get() = _binding!!
 
