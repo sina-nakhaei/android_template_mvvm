@@ -1,6 +1,5 @@
 package com.example.android_template_mvvm.feature.playground.ui
 
-import com.example.android_template_mvvm.core.base.BaseFragment
 import com.example.android_template_mvvm.core.base.BaseFragmentWithViewModel
 import com.example.android_template_mvvm.databinding.FragmentPlaygroundBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +24,7 @@ class PlaygroundFragment :
 
     override fun primary() {
         viewModelController {
-            fetch()
+            getPlayground()
 
         }
     }

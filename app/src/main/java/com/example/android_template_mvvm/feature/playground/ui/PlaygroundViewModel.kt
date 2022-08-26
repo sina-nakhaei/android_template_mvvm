@@ -17,12 +17,9 @@ class PlaygroundViewModel @Inject constructor(private val repository: Playground
     val post: LiveData<PlaygroundModel>
         get() = _post
 
-    fun fetch() {
+    fun getPlayground() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.fetch()
-                .collect { playground ->
-                    _post.postValue(playground)
-                }
+            _post.postValue(repository.getPlayground())
         }
     }
 }

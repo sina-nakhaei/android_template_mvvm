@@ -6,3 +6,5 @@ import kotlinx.serialization.Serializable
 data class PlaygroundModel(
     val title: String
 )
+
+fun PlaygroundModel.toEntity(): PlaygroundEntity = PlaygroundEntity(title = this.title)
