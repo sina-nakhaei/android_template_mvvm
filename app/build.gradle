@@ -83,8 +83,17 @@ dependencies {
     implementation "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
     implementation "io.ktor:ktor-client-okhttp:$ktor_version"
 
+    //binding
     implementation 'androidx.databinding:viewbinding:7.2.2'
     implementation 'androidx.databinding:databinding-compiler-common:7.2.2'
+
+    //room
+    def room_version = "2.4.3"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$room_version"
 }
 
 kapt {
