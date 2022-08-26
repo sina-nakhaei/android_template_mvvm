@@ -20,5 +20,5 @@ class PlaygroundRemoteDataSource @Inject constructor() : BaseRemoteDataSource() 
             url(endpoint)
         }.body()
         emit(response)
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(dispatcher)
 }
